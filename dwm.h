@@ -2,12 +2,15 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#000000";
-static const char normbgcolor[]     = "#f8ec59";
-static const char normfgcolor[]     = "#000000";
-static const char selbordercolor[]  = "#f8ec59";
-static const char selbgcolor[]      = "#ffffff";
-static const char selfgcolor[]      = "#000000";
+
+static const char normbordercolor[] = "#3F3F3F";
+static const char normbgcolor[]     = "#3F3F3F";
+static const char normfgcolor[]     = "#DCDCCC";
+static const char selbordercolor[]  = "#3F3F3F";
+static const char selbgcolor[]      = "#333333";
+static const char selfgcolor[]      = "#DCDCCC";
+
+
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -49,7 +52,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", "#f8ec59", "-sf", "#000000", NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
 
 static Key keys[] = {
