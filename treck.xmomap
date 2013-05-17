@@ -1,4 +1,7 @@
 clear Mod1
+clear Mod2
+clear Mod3
+clear Mod4
 clear Control
 clear Shift
 
@@ -9,6 +12,7 @@ keycode 105 = Shift_R
 keycode 97 = Menu
 keycode 101 = Super_L
 keycode 103 = Alt_L Meta_L
+keycode 108 = Multi_key
 
 add Mod1 = Alt_L Meta_L 
 add Control = Control_L
@@ -16,4 +20,3 @@ add Shift = Shift_L
 add Control = Control_R
 add Shift = Shift_R
 add Mod4 = Super_L
-
