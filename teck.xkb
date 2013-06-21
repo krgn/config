@@ -1,0 +1,23 @@
+partial modifier_keys
+xkb_symbols "krgn" {
+
+  include "us"
+
+  replace key <LFSH> { [ Control_L ] };
+  replace key <RTSH> { [ Control_R ] };
+
+  replace key <LCTL> { [ Shift_L ] };
+  replace key <RCTL> { [ Shift_R ] };
+
+  replace key <JPCM> { [ Alt_L ] };
+  replace key <RALT> { [ Multi_key ] };
+
+  replace key <HKTG> { [ Super_L ] };
+  replace key <AB11> { [ Super_R ] };
+
+  modifier_map Mod1 { <JPCM> };
+  modifier_map Mod4 { <HKTG>, <AB11> };
+  modifier_map Control { <LFSH>, <RTSH>  };
+  modifier_map Shift { <LCTL>, <RCTL>  };
+
+};
