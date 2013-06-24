@@ -6,10 +6,9 @@ static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 static const char normbordercolor[] = "#4F4F4F";
 static const char normbgcolor[]     = "#3F3F3F";
 static const char normfgcolor[]     = "#DCDCCC";
-static const char selbordercolor[]  = "#f8ec59";
+static const char selbordercolor[]  = "#8f8f8f";
 static const char selbgcolor[]      = "#333333";
 static const char selfgcolor[]      = "#DCDCCC";
-
 
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 10;       /* snap pixel */
@@ -43,10 +42,10 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ Mod1Mask,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ Mod1Mask|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -57,7 +56,7 @@ static const char *termcmd[]  = { "urxvtc", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ Mod1Mask,                     XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
