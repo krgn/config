@@ -48,7 +48,7 @@
 		"gray61": [14, "93a1a1"],
 		"gray13": [8, "002b36"],
 
-		"royalblue5": [0, "073642"],
+		"royalblue": [0, "073642"],
 		"darkgreencopper": [10, "586e75"],
 		"lightskyblue4": [11, "657b83"],
 		"azure4": [12, "839496"],
@@ -67,7 +67,6 @@
 		"lightyellowgreen": 106,
 		"gold3": 178,
 		"orangered": 202,
-
 		"steelblue": 67,
 		"darkorange3": 166,
 		"skyblue1": 117,
