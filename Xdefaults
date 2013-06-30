@@ -4,7 +4,7 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 URxvt*font:                 xft:Deja Vu Sans Mono for Powerline:regular:size=10
-!URxvt.letterSpace:	-1
+URxvt.letterSpace:	-1
 
 ! Zenburn color-scheme
 URxvt*background:  #3f3f3f
