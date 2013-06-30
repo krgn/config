@@ -1,0 +1,12 @@
+{
+	"name": "Default color scheme for terminal prompts",
+	"groups": {
+		"background:divider": { "fg": "black", "bg": "blue" },
+		"time": { "fg": "black", "bg": "blue", "attr": ["bold"] },
+		"time:divider": { "fg": "black", "bg": "blue" },
+		"hostname": { "fg": "black", "bg": "blue", "attr": ["bold"] },
+		"system_load": { "fg": "black", "bg": "blue" },
+		"system_load:divider": { "fg": "black", "bg": "black" },
+		"environment": { "fg": "blue", "bg": "darkestblue" }
+	}
+}

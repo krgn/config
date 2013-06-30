@@ -3,9 +3,8 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
-!URxvt*font:      -xos4-terminus-medium-r-normal--14-*-*-*-*-*-*-*
-URxvt*font:      	xft:Monospace:pixelsize=13
-URxvt.letterSpace:	-1
+URxvt*font:                 xft:Deja Vu Sans Mono for Powerline:regular:size=10
+!URxvt.letterSpace:	-1
 
 ! Zenburn color-scheme
 URxvt*background:  #3f3f3f

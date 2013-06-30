@@ -1,0 +1,21 @@
+{
+	"default_module": "powerline.segments.common",
+	"segments": {
+		"right": [
+			{
+				"name": "system_load",
+				"priority": 50
+			},
+			{
+				"name": "date",
+				"args": {
+					"format": "%Y/%m/%d %H:%M",
+					"istime": true
+				}
+			},
+			{
+				"name": "hostname"
+			}
+		]
+	}
+}
