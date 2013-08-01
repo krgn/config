@@ -13,11 +13,20 @@ xkb_symbols "krgn" {
   replace key <RALT> { [ Multi_key ] };
 
   replace key <HKTG> { [ Super_L ] };
-  replace key <AB11> { [ Super_R ] };
+  replace key <AB11> { [ Multi_key ] };
 
   modifier_map Mod1 { <JPCM> };
   modifier_map Mod4 { <HKTG>, <AB11> };
   modifier_map Control { <LFSH>, <RTSH>  };
   modifier_map Shift { <LCTL>, <RCTL>  };
 
+  key <AD02>  { [         w,          W,           ae,           AE ] };
+  key <AD03>  { [         e,          E,     EuroSign,     EuroSign ] };
+  key <AC01>  { [         a,          A,   adiaeresis,   Adiaeresis ] };
+  key <AC07>  { [         j,          J,    downarrow,      uparrow ] };
+  key <AD07>  { [         u,          U,   udiaeresis,   Udiaeresis ] };
+  key <AD09>  { [         o,          O,   odiaeresis,   Odiaeresis ] };
+
+  include "level3(ralt_switch)"
+  include "level3(lalt_switch)"
 };
