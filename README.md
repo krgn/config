@@ -1,5 +1,14 @@
-### various config files
+Automate Everything
+===================
 
-for public amusement/peruse
+![Bender](.bender.jpg "")
 
-XC
+
+### Installation
+
+```
+make
+
+```
+
+
