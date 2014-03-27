@@ -1,0 +1,6 @@
+# ~/.editrc (for libedit)
+edit on
+bind ^R em-inc-search-prev
+bind ^S em-inc-search-next
+bind ^[[5~ ed-search-prev-history
+bind ^[[6~ ed-search-next-history

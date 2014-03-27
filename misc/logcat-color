@@ -1,0 +1,8 @@
+def noWebConsole(data):
+    return data.get("tag") not in ("Web Console")
+
+Profile(
+    name = "senator",
+    packages = [ "com.null2.Senator2" ],
+    filters = (noWebConsole)
+)

@@ -1,0 +1,4 @@
+:set prompt "ghci> "
+:set -XOverloadedStrings
+:set -XBangPatterns
+:set +s

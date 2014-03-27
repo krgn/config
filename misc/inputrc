@@ -1,0 +1,7 @@
+set show-all-if-ambiguous on
+set wildmode=longest:list
+set completion-ignore-case on
+set completion-map-case on
+set completion-query-items -1
+set page-completions off
+

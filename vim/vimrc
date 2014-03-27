@@ -1,0 +1,110 @@
+set nocompatible
+
+function! ReadExcludes() 
+if filereadable("./.vim-profile")
+    source ./.vim-profile
+endif
+endfunction
+
+call ReadExcludes()
+execute pathogen#infect()
+
+filetype plugin indent on
+syntax on
+
+let mapleader=","
+
+set complete+=kspell
+set omnifunc=syntaxcomplete#Complete
+set laststatus=2
+
+set backupdir=~/.vim/backup,/tmp,./.backup
+set directory=~/.vim/backup,./,/tmp,./.backup
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set ignorecase
+set smartcase
+set smartindent
+set hlsearch
+set incsearch
+set lazyredraw
+set magic
+set showmatch
+set mat=2
+set nobackup
+set nowb
+set textwidth=0 wrapmargin=0
+set nowrap
+set noswapfile
+set showtabline=2
+set clipboard=unnamedplus
+set ttimeout
+set ttimeoutlen=50
+
+if has("wildmenu")
+    set wildignore+=*.a,*.o
+    set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+    set wildignore+=.DS_Store,.git,.hg,.svn
+    set wildignore+=*~,*.swp,*.tmp
+    set wildignore+=*/attachments/*,*/vendor*,*/node_modules/*
+    set wildmenu
+    set wildmode=longest,list
+endif
+
+command ClearSearch let @/=""
+
+autocmd FileType ruby       set tabstop=2 | set shiftwidth=2
+autocmd FileType javascript set tabstop=2 | set shiftwidth=2
+autocmd FileType haskell    set tabstop=4 | set shiftwidth=4
+autocmd FileType haskell    set omnifunc=necoghc#omnifunc
+autocmd FileType java       set tabstop=4 | set shiftwidth=4
+autocmd FileType markdown   set textwidth=80 | set wm=2
+
+autocmd FileType gitcommit setlocal spell
+autocmd FileType mail setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd QuickFixCmdPost *grep* cwindow
+" Restore last used position {{{ 
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
+                    \   exe "normal! g`\"" |
+                    \ endif
+set viminfo^=%
+" }}}
+
+" just use bash, whatevva..
+set shell=/bin/bash\ -i
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
+" let g:syntastic_javascript_checkers=['jslint']
+let g:syntastic_check_on_open=1
+let g:syntastic_java_javac_config_file_enabled=0
+let g:syntastic_disabled_filetypes=['javac']
+
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
+
+let g:crtlp_map='<F11>'
+let g:ctrlp_working_path_mode = '0'
+
+" silver searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:crtlp_max_files=20000
+  let g:ctrlp_max_depth=40 
+  let g:ctrlp_use_caching = 0
+endif
+
+"" disable the annoying help thingy
+nmap <F1> <nop>
+imap <F1> <nop>
+map  <F1> <nop>
+
+colorscheme monokai
+set background=dark
+hi Search ctermfg=28 ctermbg=232
