@@ -1,0 +1,16 @@
+Config { font = "-*-terminus-*-*-*-*-*-*-*-*-*-*-*-*"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Bottom
+       , lowerOnStart = True
+       , persistent = False
+       , commands = [
+           Run StdinReader
+           , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+           ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% %date%"
+       }
