@@ -13,6 +13,7 @@ import XMonad
 import XMonad.StackSet hiding (workspaces)
 
 -- xmonad contrib
+import XMonad.Actions.GridSelect
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.Warp
 import XMonad.Hooks.DynamicLog
@@ -30,16 +31,15 @@ centerMouse = warpToWindow (1/2) (1/2)
 statusBarMouse = warpToScreen 0 (5/1600) (5/1200)
 withScreen screen f = screenWorkspace screen >>= flip whenJust (windows . f)
 
-makeLauncher yargs run exec close = concat
-    ["exe=`dmenu_run", yargs, "` && ", run, " ", exec, "$exe", close]
+makeLauncher yargs run exec close = concat ["exe=`dmenu_run -b -p open -nf '#4d4d4d' -nb '#000' -sb '#8004d3' ", yargs, "` && ", run, " ", exec, "$exe", close]
 launcher     = makeLauncher "" "eval" "\"exec " "\""
-termLauncher = makeLauncher "-p withterm" "exec urxvt -e" "" ""
+termLauncher = makeLauncher "-p withterm" "exec urxvtc -e" "" ""
 viewShift  i = view i . shift i
 floatAll     = composeAll . map (\s -> className =? s --> doFloat)
 sinkFocus    = peek >>= maybe id sink
 
-bright = "#80c0ff"
-dark   = "#13294e"
+bright = "#4d4d4d"
+dark   = "#121212"
 
 fullscreenMPlayer = className =? "MPlayer" --> do
     dpy   <- liftX $ asks display
@@ -67,10 +67,11 @@ myLayout = avoidStruts tiled ||| Mirror tiled ||| tiled ||| noBorders Full
 main = do
     nScreens    <- countScreens
     hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
+    trayers     <- mapM (spawnPipe . trayerCommand) [0 .. 0]
     xmonad $ defaultConfig {
-        borderWidth             = 1,
+        borderWidth             = 3,
         workspaces              = withScreens nScreens (map show [1..9]),
-        terminal                = "urxvt",
+        terminal                = "urxvtc",
         normalBorderColor       = dark,
         focusedBorderColor      = bright,
         modMask                 = mod4Mask,
@@ -117,6 +118,9 @@ keyBindings conf = let m = modMask conf in fromList $ [
   , (e, f)           <- [(0, view     ), (shiftMask, viewShift)]
   , i                <- [0, controlMask, mod1Mask, controlMask .|. mod1Mask]
   ]
+    
+xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]
+trayerCommand (S s) = unwords ["trayer", "--edge", "bottom", "--align", "right", "--SetDockType", "true", "--SetPartialStrut", "true", "--expand", "true", "--width", "6", "--transparent", "true", "--alpha", "0", "--tint", "0x000000", "--height", "12", "--monitor", show s]
 
 xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]
 pp h s = marshallPP s defaultPP {

@@ -30,4 +30,8 @@ config: $(PWD)/config;
 	@echo "linking config"
 	@ln -sf $(PWD)/config $(HOME)/.config
 
-.PHONY: all shell x11 misc vim config
+clean: ;
+	@rm -rf $(HOME)/.vim
+	@rm -rf $(HOME)/.config
+
+.PHONY: all shell x11 misc vim config clean
