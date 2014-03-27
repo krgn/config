@@ -119,7 +119,6 @@ keyBindings conf = let m = modMask conf in fromList $ [
   , i                <- [0, controlMask, mod1Mask, controlMask .|. mod1Mask]
   ]
     
-xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]
 trayerCommand (S s) = unwords ["trayer", "--edge", "bottom", "--align", "right", "--SetDockType", "true", "--SetPartialStrut", "true", "--expand", "true", "--width", "6", "--transparent", "true", "--alpha", "0", "--tint", "0x000000", "--height", "12", "--monitor", show s]
 
 xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]

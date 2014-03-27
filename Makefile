@@ -33,5 +33,6 @@ config: $(PWD)/config;
 clean: ;
 	@rm -rf $(HOME)/.vim
 	@rm -rf $(HOME)/.config
+	@rm -rf $(HOME)/.xmonad
 
 .PHONY: all shell x11 misc vim config clean
