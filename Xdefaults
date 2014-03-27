@@ -4,11 +4,11 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 !URxvt*font:                 xft:Menlo for Powerline:regular:size=8
-URxvt*font:                 xft:Ubuntu Mono:regular:size=11
-URxvt.letterSpace:	-1
+URxvt*font:                 xft:Terminus:regular:size=10
+!URxvt.letterSpace:	0
 
 ! Zenburn color-scheme
-URxvt*background:  #3f3f3f
+URxvt*background:  #121212
 URxvt*foreground:  #dcdccc
 ! black + red
 !URxvt*color0:     #3f3f3f
@@ -36,7 +36,7 @@ URxvt*color13:     #ec93d3
 URxvt*color14:     #93e0e3
 URxvt*color15:     #ffffff
 
-URxvt.highlightColor : #2b2b2b
+URxvt.highlightColor: #484848
 
 URxvt*iso14755:         False
 URxvt*iso14755_2:       False
