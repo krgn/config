@@ -65,6 +65,7 @@ myLayout = avoidStruts tiled ||| Mirror tiled ||| tiled ||| noBorders Full
      delta   = 3/100
 
 main = do
+    kill        <- mapM_ spawn ["killall trayer", "killall xmobar"]
     nScreens    <- countScreens
     hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
     trayers     <- mapM (spawnPipe . trayerCommand) [0 .. 0]
@@ -121,7 +122,6 @@ keyBindings conf = let m = modMask conf in fromList $ [
   ]
     
 trayerCommand (S s) = unwords ["trayer", "--edge", "bottom", "--align", "right", "--SetDockType", "true", "--SetPartialStrut", "true", "--expand", "true", "--width", "6", "--transparent", "true", "--alpha", "0", "--tint", "0x000000", "--height", "12", "--monitor", show s]
-
 xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]
 pp h s = marshallPP s defaultPP {
     ppCurrent           = color "white",
