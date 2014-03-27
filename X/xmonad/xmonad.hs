@@ -90,6 +90,7 @@ main = do
 
 keyBindings conf = let m = modMask conf in fromList $ [
   ((mod1Mask               , xK_r     ), spawnHere launcher),
+  ((mod1Mask               , xK_Return), spawnHere "urxvtc"),
   ((m .|. shiftMask        , xK_p     ), spawnHere termLauncher),
   ((mod1Mask .|. shiftMask , xK_c     ), kill),
   ((m                      , xK_q     ), restart "xmonad" True),
