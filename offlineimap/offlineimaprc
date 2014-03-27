@@ -1,0 +1,53 @@
+[general]
+pythonfile = ~/.offlineimap.py
+accounts = fastmail,null2
+maxsyncaccounts = 2
+ignore-readonly = no
+ui = basic
+
+[Account null2]
+localrepository = null2-local
+remoterepository = null2-remote
+autorefresh = 3
+# presynchook = imapfilter
+postsynchook = notmuch new
+
+[Repository null2-local]
+type = Maildir
+localfolders = ~/mail/null2
+sep = /
+
+[Repository null2-remote]
+type = IMAP
+remotehost = mail.null2.net
+#ssl = yes
+remoteport = 143
+remoteuser = n224p46
+remotepasseval = keyring.get_password("offlineimap","karsten@null2.net")
+maxconnections = 2
+keepalive = 60
+holdconnectionopen = yes
+
+[Account fastmail]
+localrepository = fastmail-local
+remoterepository = fastmail-remote
+autorefresh = 3
+# presynchook = imapfilter
+postsynchook = notmuch new
+
+[Repository fastmail-local]
+type = Maildir
+localfolders = ~/mail/fm
+sep = /
+
+[Repository fastmail-remote]
+ssl = yes
+type = IMAP
+remotehost = mail.messagingengine.com
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteport = 993
+remoteuser = krgn@eml.cc
+remotepasseval = keyring.get_password("offlineimap","k@ioctl.it")
+maxconnections = 2
+keepalive = 60
+holdconnectionopen = yes
