@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+dbus_session_file=~/.dbus/session-bus/$(cat /var/lib/dbus/machine-id)-$display_number
+suppress_warnings="no"
+
+if [ -e "$dbus_session_file" ]; then
+  . "$dbus_session_file"
+  export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
+fi
+
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK 
 

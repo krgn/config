@@ -8,7 +8,7 @@ ui = basic
 [Account null2]
 localrepository = null2-local
 remoterepository = null2-remote
-autorefresh = 3
+autorefresh = 1
 # presynchook = imapfilter
 postsynchook = notmuch new
 
@@ -24,14 +24,14 @@ remotehost = mail.null2.net
 remoteport = 143
 remoteuser = n224p46
 remotepasseval = keyring.get_password("offlineimap","karsten@null2.net")
-maxconnections = 2
+maxconnections = 1
 keepalive = 60
 holdconnectionopen = yes
 
 [Account fastmail]
 localrepository = fastmail-local
 remoterepository = fastmail-remote
-autorefresh = 3
+autorefresh = 1
 # presynchook = imapfilter
 postsynchook = notmuch new
 
@@ -48,6 +48,6 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteport = 993
 remoteuser = krgn@eml.cc
 remotepasseval = keyring.get_password("offlineimap","k@ioctl.it")
-maxconnections = 2
+maxconnections = 1
 keepalive = 60
 holdconnectionopen = yes
