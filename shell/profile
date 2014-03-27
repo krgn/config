@@ -6,6 +6,9 @@ function join() {
     echo "$*"
 }
 
+GNOME_KEYRING_CONTROL=`ss -xl | grep -o "/run/user/$(id -u)/keyring-.*/control"`
+[ -z "$GNOME_KEYRING_CONTROL" ] || export GNOME_KEYRING_CONTROL
+
 SSH_AUTH_SOCK=`ss -xl | grep -o "/run/user/$(id -u)/keyring-.*/ssh"`
 [ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 

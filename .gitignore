@@ -2,3 +2,6 @@
 backup/*
 .excludes
 X/xmonad/xmonad.errors
+X/xmonad/xmonad-x86_64-linux
+X/xmonad/xmonad.hi
+X/xmonad/xmonad.o
