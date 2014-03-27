@@ -2,7 +2,7 @@ MISC=$(wildcard misc/*)
 X11=$(wildcard X/*)
 SH=$(wildcard shell/*)
 
-all: x11 misc vim shell
+all: x11 misc vim shell config
 
 shell: $(SH);
 	@for file in $(SH); do \
@@ -26,4 +26,8 @@ vim: $(PWD)/vim;
 	@echo "linking vim"
 	@ln -sf $(PWD)/vim $(HOME)/.vim
 
-.PHONY: all shell x11 misc vim
+config: $(PWD)/config;
+	@echo "linking config"
+	@ln -sf $(PWD)/config $(HOME)/.config
+
+.PHONY: all shell x11 misc vim config
