@@ -61,6 +61,8 @@ autocmd FileType haskell    set tabstop=4 | set shiftwidth=4
 autocmd FileType haskell    set omnifunc=necoghc#omnifunc
 autocmd FileType java       set tabstop=4 | set shiftwidth=4
 autocmd FileType markdown   set textwidth=80 | set wm=2
+autocmd FileType notmuch-show set textwidth=80 | set wm=2 | set wrap
+autocmd FileType notmuch-compose set textwidth=80 | set wm=2
 
 autocmd FileType gitcommit setlocal spell
 autocmd FileType mail setlocal spell
