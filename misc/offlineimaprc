@@ -9,8 +9,8 @@ ui = basic
 localrepository = null2-local
 remoterepository = null2-remote
 autorefresh = 1
-# presynchook = imapfilter
-postsynchook = notmuch new
+# presynchook = ionice -c 3 chrt --idle 0 /bin/sh -c "afew -m --all"
+postsynchook = ionice -c 3 chrt --idle 0 /bin/sh -c "notmuch new && afew --tag --new"
 
 [Repository null2-local]
 type = Maildir
@@ -32,8 +32,8 @@ holdconnectionopen = yes
 localrepository = fastmail-local
 remoterepository = fastmail-remote
 autorefresh = 1
-# presynchook = imapfilter
-postsynchook = notmuch new
+# presynchook = ionice -c 3 chrt --idle 0 /bin/sh -c "afew -m --all"
+postsynchook = ionice -c 3 chrt --idle 0 /bin/sh -c "notmuch new && afew --tag --new"
 
 [Repository fastmail-local]
 type = Maildir
