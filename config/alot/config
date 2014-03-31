@@ -1,0 +1,175 @@
+body_mimetype                = text/plain
+search_threads_sort_order    = newest_first
+complete_matching_abook_only = False
+show_count_in_tag_list       = messages
+notify_timeout               = 4
+colourmode                   = 256
+auto_remove_unread           = True
+initial_command              = 'bufferlist'
+prefer_plaintext             = True
+tabwidth                     = 4
+bug_on_exit                  = true
+editor_cmd                   = /usr/bin/vim -f -c 'set filetype = mail' +
+displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
+
+[accounts]
+  [[fm]]
+    realname = Karsten Gebbert
+    address = k@ioctl.it
+    aliases = krgn@eml.cc
+    # gpg_key = D7D6C5AA
+    # sign_by_default = True
+    type = sendmail
+    sendmail_command = msmtp --account=fm -t
+    draft_box = maildir:///home/k/mail/fm/INBOX/Drafts
+    sent_box = maildir:///home/k/mail/fm/INBOX/Sent
+    signature = ~/.config/alot/ioctl.sig
+    # [[[abook]]]
+    #   type = shellcommand
+    #   command = nottoomuch-addresses.sh
+    #   regexp = (\"(?P<name>.+)\")?\s*<(?P<email>.*@.+?)>
+
+  [[null2]]
+    realname = Karsten Gebbert
+    address = karsten@null2.net
+    # aliases = p.totzke@sms.ed.ac.uk, s0976898@sms.ed.ac.uk
+    type = sendmail
+    sendmail_command = msmtp --account=null2 -t
+    sent_box = maildir:///home/k/mail/null2/INBOX/Sent
+    draft_box = maildir:///home/k/mail/null2/INBOX/Drafts
+    signature = ~/.config/alot/null2.sig
+    # signature_filename = 
+    # signature_as_attachment = True
+    #[[[abook]]]
+     # type = abook
+      #ignorecase = True
+
+[bindings]
+  # '[' = compose --template bpp
+  C = compose --spawn=1
+  I = search is:inbox
+  A = search is:archived
+  S = search is:sent
+  F = search is:flagged
+  * = search is:starred
+  D = search is:deleted
+  s = prompt 'search '
+  'g g' = move first
+  G = move last
+  # P = "shellescape 'notmuch search --output=files tag:deleted | xargs rm && notmuch new'; refresh"
+  q = bufferlist
+  Q = exit
+  d = 
+  x = bclose
+  "=" = refresh
+  'ctrl f' = move halfpage down
+  'ctrl b' = move halfpage up
+  'ctrl d' =
+  'ctrl u' =
+
+  [[search]]
+    #H = untag --all unread
+    d = toggletags deleted,inbox
+    ! = toggletags flagged
+    * = toggletags starred
+    u = toggletags unread
+    t = toggletags todo
+    a = toggletags inbox,archived
+    s = 
+    #enter = "select; fold NOT is:unread"
+  
+  [[thread]]
+    #H = "call ui.current_buffer.get_selected_message().test_parser()"
+    #G = "pipeto 'git am'"
+    d = toggletags deleted,inbox
+    ! = toggletags flagged
+    * = toggletags starred
+    u = toggletags unread
+    t = toggletags todo
+    i = toggletags inbox
+    a = toggletags archived,inbox
+    v = verify
+    ' ' = fold;move next;unfold
+    #$ = call hooks.github(ui)
+
+########################################################
+16_base03 = 'dark gray'
+16_base02 = 'black'
+16_base01 = 'light green'
+16_base00 = 'yellow'
+16_base0 = 'light blue'
+16_base1 = 'light cyan'
+16_base2 = 'light gray'
+16_base3 = 'white'
+16_yellow = 'brown'
+16_orange = 'light red'
+16_red = 'dark red'
+16_magenta = 'dark magenta'
+16_violet = 'light magenta'
+16_blue = 'dark blue'
+16_cyan = 'dark cyan'
+16_green = 'dark green'
+
+# Use a slightly different mapping here to be able to use "bold" in 256c mode
+256_base03 = 'dark gray'
+256_base02 = 'black'
+256_base01 = 'light green'
+256_base00 = 'yellow'
+256_base0 = 'g66'
+256_base1 = 'g70'
+256_base2 = 'light gray'
+256_base3 = 'white'
+256_yellow = 'brown'
+256_orange = 'light red'
+256_red = 'dark red'
+256_magenta = 'dark magenta'
+256_violet = 'light magenta'
+256_blue = 'dark blue'
+256_cyan = '#088'
+256_green = 'dark green'
+
+########################################################
+[tags]
+  [[flagged]]
+    translated = ⚑
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[starred]]
+    translated = ✠
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[inbox]]
+    translated = ●
+    normal = "", "", "", "", "", ""
+  [[archived]]
+    translated = ⬖
+    normal = '','', 'dark blue', '', 'dark blue', ''
+  [[sent]]
+    translated = ↗
+    normal = '','', 'dark blue', '', 'dark blue', ''
+  [[unread]]
+    translated = ⏣
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[replied]]
+    translated = ⏎
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[encrypted]]
+    translated = ☢
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[signed]]
+    translated = ✤
+    normal = "", "", "", "", "", ""
+  [[deleted]]
+    translated = D
+    normal = "", "", "", "", "black", "light red"
+  [[attachment]]
+    translated = A
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[lists]]
+    translated = ✿
+    normal = "", "", 'light blue', '', 'light blue', ''
+  [[camalo]]
+    translated = ❤
+    normal = "", "", 'light red', '', 'light red', ''
+  [[timur]]
+    translated = ☪ 
+    normal = "", "", 'light red', '', 'light red', ''
+

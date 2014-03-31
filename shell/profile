@@ -28,7 +28,15 @@ export EDITOR=vim
 export ANDROID_HOME=$HOME/src/android/sdk/sdk
 export BROWSER=chromium-browser
 export CLASSPATH=$CLASSPATH:$HOME/bin/eclipse/plugins:/usr/lib/jvm/java-7-openjdk:/usr/share/java:$(join ":" $ANDROID_HOME/platforms/*)
-export PATH=$HOME/.cabal/bin:$HOME/.node_modules/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:/usr/bin/vendor_perl:/usr/bin/site_perl/:$HOME/.gem/ruby/1.9.1/bin:$PATH
+
+export PATH=$HOME/bin:$PATH 
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.node_modules/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/.gem/ruby/1.9.1/bin:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
+export PATH=/usr/bin/vendor_perl:/usr/bin/site_perl/:$PATH
+
 export VST_PATH=$HOME/lib/vst
 export LD_LIBRARY_PATH=$ANDROID_HOME/tools/lib/:$LD_LIBRARY_PATH
 export GEM_PATH=$HOME/.gem/ruby/1.9.1:/usr/lib/ruby/gems/1.9.1/ 
