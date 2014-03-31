@@ -1,0 +1,86 @@
+[global]
+
+# This is the default filter chain
+[SpamFilter]
+[KillThreadsFilter]
+[ListMailsFilter]
+[ArchiveSentMailsFilter]
+sent_tag = sent
+
+# add specific tags
+# remember to remove new tag when removing inbox!
+[Filter.0]
+query = 'tag:new AND from:camalo@gmail.com'
+tags = -new;+unread;+inbox;+camalo
+message = camalo new
+
+[Filter.1]
+query = 'NOT tag:new AND from:camalo@gmail.com'
+tags = -new;+inbox;+camalo
+message = camalo old
+
+[Filter.2]
+query = 'tag:new AND to:karsten@null2.net'
+tags = -new;+unread;+inbox;+null2
+message = null2 new
+
+[Filter.3]
+query = 'NOT tag:new AND to:karsten@null2.net'
+tags = -new;+inbox;+null2
+message = null2 old
+
+[Filter.3]
+query = 'tag:new AND to:error@null2.net'
+tags = -new;-inbox;+unread;+null2;+errors
+message = null2 errors new 
+
+[Filter.4]
+query = 'NOT tag:new AND to:error@null2.net'
+tags = -new;-inbox;+null2;+errors
+message = null2 errors old
+
+[Filter.5]
+query = 'folder:Trash'
+tags = -new;-inbox;+deleted
+message = trashes 
+
+[Filter.6]
+query = 'tag:new AND folder:karstengebbert'
+tags = -new;+unread;+inbox;+gmail
+message = gmail new
+
+[Filter.6]
+query = 'NOT tag:new AND folder:karstengebbert'
+tags = -new;+inbox;+gmail
+message = gmail old
+
+[Filter.7]
+query = 'folder:Archive'
+tags = -new;-inbox;+archived
+message = archived
+
+[Filter.8]
+query = 'folder:Junk'
+tags = -new;-inbox;+spam
+message = spam
+
+# all thats still new goes into the inbox
+[InboxFilter.0]
+tags = -new;+unread;+inbox
+
+# move trashed mail to Trash, so other machines get it right too
+
+# [MailMover]
+# folders = fm/INBOX fm/INBOX/karstengebbert fm/INBOX/Trash null2/INBOX null2/INBOX/Trash
+# max_age = 15
+
+# # rules
+# fm/INBOX = 'tag:deleted':fm/INBOX/Trash
+# fm/INBOX/Trash = 'NOT tag:deleted':fm/INBOX
+
+# fm/INBOX/karstengebbert = 'tag:deleted':fm/INBOX/Trash
+# fm/INBOX/Trash          = 'NOT tag:deleted':fm/INBOX
+
+# null2/INBOX = 'tag:deleted':null2/INBOX/Trash
+# null2/INBOX/Trash = 'NOT tag:deleted':null2/INBOX
+
