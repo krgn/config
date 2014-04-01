@@ -65,7 +65,7 @@ myLayout = avoidStruts tiled ||| Mirror tiled ||| tiled ||| noBorders Full
      delta   = 3/100
 
 main = do
-    kill        <- mapM_ spawn ["killall trayer", "killall xmobar"]
+    kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar"]
     nScreens    <- countScreens
     hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
     trayers     <- mapM (spawnPipe . trayerCommand) [0 .. 0]
