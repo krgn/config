@@ -47,7 +47,7 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
 [bindings]
   # '[' = compose --template bpp
   C = compose --spawn=1
-  I = search is:inbox
+  I = search tag:inbox AND date:7d..now   
   A = search is:archived
   S = search is:sent
   F = search is:flagged
@@ -86,7 +86,6 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
     * = toggletags starred
     u = toggletags unread
     t = toggletags todo
-    i = toggletags inbox
     a = toggletags archived,inbox
     v = verify
     ' ' = fold;move next;unfold
