@@ -9,7 +9,7 @@ initial_command              = 'bufferlist'
 prefer_plaintext             = True
 tabwidth                     = 4
 bug_on_exit                  = true
-editor_cmd                   = /usr/bin/vim -f -c 'set filetype = mail' +
+editor_cmd                   = /usr/bin/vim -f -c 'set filetype=mail' +
 displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
 
 [accounts]
