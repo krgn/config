@@ -5,7 +5,7 @@ show_count_in_tag_list       = messages
 notify_timeout               = 4
 colourmode                   = 256
 auto_remove_unread           = True
-initial_command              = 'bufferlist'
+initial_command              = 'search tag:inbox AND date:7d..now'
 prefer_plaintext             = True
 tabwidth                     = 4
 bug_on_exit                  = true
@@ -56,8 +56,8 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
   s = prompt 'search '
   'g g' = move first
   G = move last
-  # P = "shellescape 'notmuch search --output=files tag:deleted | xargs rm && notmuch new'; refresh"
-  q = bufferlist
+  'd d D D' = "shellescape 'notmuch search --output=files tag:deleted | xargs rm && notmuch new'; refresh"
+  q = 'search tag:inbox AND date:7d..now'
   Q = exit
   d = 
   x = bclose
