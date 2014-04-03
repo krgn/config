@@ -125,6 +125,7 @@ keyBindings conf = let m = modMask conf in fromList $ [
 conkyCommands = map unwords [
         ["conky", "-c", "~/.systemconky"],
         ["conky", "-c", "~/.agendaconky"],
+        ["conky", "-c", "~/.todoconky"],
         ["conky", "-c", "~/.calwconky"]
     ]
 
