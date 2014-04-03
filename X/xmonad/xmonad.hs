@@ -65,8 +65,9 @@ myLayout = avoidStruts tiled ||| Mirror tiled ||| tiled ||| noBorders Full
      delta   = 3/100
 
 main = do
-    kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar"]
+    kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
     nScreens    <- countScreens
+    conkys      <- mapM spawnPipe conkyCommands
     hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
     trayers     <- mapM (spawnPipe . trayerCommand) [0 .. 0]
     xmonad $ defaultConfig {
@@ -121,8 +122,15 @@ keyBindings conf = let m = modMask conf in fromList $ [
   , i                <- [0, controlMask, mod1Mask, controlMask .|. mod1Mask]
   ]
     
+conkyCommands = map unwords [
+        ["conky", "-c", "~/.systemconky"],
+        ["conky", "-c", "~/.agendaconky"],
+        ["conky", "-c", "~/.calwconky"]
+    ]
+
 trayerCommand (S s) = unwords ["trayer", "--edge", "bottom", "--align", "right", "--SetDockType", "true", "--SetPartialStrut", "true", "--expand", "true", "--width", "6", "--transparent", "true", "--alpha", "0", "--tint", "0x000000", "--height", "12", "--monitor", show s]
 xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "~/.xmobarrc"]
+
 pp h s = marshallPP s defaultPP {
     ppCurrent           = color "white",
     ppVisible           = color "white",

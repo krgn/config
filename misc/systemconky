@@ -6,23 +6,29 @@ update_interval 1
 total_run_times 0
 double_buffer yes
 minimum_size 250
-maximum_width 250
+maximum_width 350
 draw_shades no
 draw_outline no
 draw_borders no
 stippled_borders 0
 border_inner_margin 0
 border_width 1
-default_color grey31
-alignment top_right
+default_color grey61
+alignment top_left
 gap_x 35
-gap_y 240 
+gap_y 100
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
 net_avg_samples 2
 override_utf8_locale yes
 use_spacer none
+
+own_window yes
+own_window_class Conky
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
  
 TEXT
 DATE ${hr 2}

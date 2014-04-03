@@ -14,7 +14,8 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 source $HOME/.profile
 
 exec urxvtd -f &
-exec conky &
+exec conky -c $HOME/.conkyrc &
+exec conky -c $HOME/.calconkyrc &
 exec xsetroot -solid black &
 exec xscreensaver &
 
