@@ -5,7 +5,7 @@ show_count_in_tag_list       = messages
 notify_timeout               = 4
 colourmode                   = 256
 auto_remove_unread           = True
-initial_command              = 'search tag:inbox AND date:7d..now'
+initial_command              = 'search tag:inbox AND date:7d..now AND NOT tag:deleted'
 prefer_plaintext             = True
 tabwidth                     = 4
 bug_on_exit                  = true
@@ -47,7 +47,7 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
 [bindings]
   # '[' = compose --template bpp
   C = compose --spawn=1
-  I = search tag:inbox AND date:7d..now   
+  I = search tag:inbox AND date:7d..now AND NOT tag:deleted
   A = search is:archived
   S = search is:sent
   F = search is:flagged
