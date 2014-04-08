@@ -64,6 +64,17 @@ query = 'folder:Junk'
 tags = -new;-inbox;+spam
 message = spam
 
+[Filter.9]
+query = 'to:yamamoto.sports@gmail.com'
+tags = -new;-unread;-inbox;+deleted
+message = timur spam bot
+
+[Filter.10]
+query = 'to:haskell-cafe@haskell.org'
+tags = -new;-unread;-inbox
+message = haskell cafe
+
+
 # all thats still new goes into the inbox
 [InboxFilter.0]
 tags = -new;+unread;+inbox

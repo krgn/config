@@ -5,7 +5,7 @@ show_count_in_tag_list       = messages
 notify_timeout               = 4
 colourmode                   = 256
 auto_remove_unread           = True
-initial_command              = 'search tag:inbox AND date:7d..now AND NOT tag:deleted'
+initial_command              = 'search tag:inbox AND date:7d..now AND NOT tag:deleted AND NOT tag:spam'
 prefer_plaintext             = True
 tabwidth                     = 4
 bug_on_exit                  = true
@@ -47,7 +47,7 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
 [bindings]
   # '[' = compose --template bpp
   C = compose --spawn=1
-  I = search tag:inbox AND date:7d..now AND NOT tag:deleted
+  I = search tag:inbox AND date:7d..now AND NOT tag:deleted AND NOT tag:spam
   A = search is:archived
   S = search is:sent
   F = search is:flagged
@@ -56,8 +56,8 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
   s = prompt 'search '
   'g g' = move first
   G = move last
-  'ctrl d d' = "shellescape 'notmuch search --output=files tag:deleted | xargs -l rm && notmuch new'; refresh"
-  q = 'search tag:inbox AND date:7d..now'
+ 'ctrl d d' = "shellescape 'notmuch search --output=files tag:deleted | tr '\n' '\0' | xargs -0 -L 1 rm  && notmuch new'; refresh"
+  q = 'search tag:inbox AND date:7d..now AND NOT tag:deleted AND NOT tag:spam'
   Q = exit
   d = 
   x = bclose
