@@ -33,3 +33,4 @@ config/google-googletalkplugin/
 vim/spell
 config/evince/
 config/fish/fishd.poon
+config/lxterminal/

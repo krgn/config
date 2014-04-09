@@ -95,6 +95,7 @@ keyBindings conf = let m = modMask conf in fromList $ [
   ((mod1Mask               , xK_Return), spawnHere "urxvtc"),
   ((m .|. shiftMask        , xK_p     ), spawnHere termLauncher),
   ((mod1Mask .|. shiftMask , xK_c     ), kill),
+  ((m                      , xK_Escape), spawnHere "xscreensaver-command -lock"),
   ((m                      , xK_q     ), restart "xmonad" True),
   ((m .|. shiftMask        , xK_q     ), io (exitWith ExitSuccess)),
   ((m                      , xK_grave ), sendMessage NextLayout),

@@ -43,6 +43,11 @@ set clipboard=unnamedplus
 set ttimeout
 set ttimeoutlen=50
 
+set printencoding=utf-8
+set printfont=Ubuntu:12
+set printheader="%:t%=Page %N"
+set printoptions=paper:A4,portrait:yes
+
 if has("wildmenu")
     set wildignore+=*.a,*.o
     set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
@@ -69,12 +74,11 @@ autocmd FileType mail setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd QuickFixCmdPost *grep* cwindow
-" Restore last used position {{{ 
+
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
                     \   exe "normal! g`\"" |
                     \ endif
 set viminfo^=%
-" }}}
 
 " just use bash, whatevva..
 set shell=/bin/bash\ -i
