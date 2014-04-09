@@ -56,7 +56,11 @@ displayed_headers            = To,Cc,Bcc,Subject,Tags,Date
   s = prompt 'search '
   'g g' = move first
   G = move last
- 'ctrl d d' = "shellescape 'notmuch search --output=files tag:deleted | tr '\n' '\0' | xargs -0 -L 1 rm  && notmuch new'; refresh"
+
+  # notmuch-delete:
+  #   notmuch search --output=files tag:deleted | tr '\n' '\0' | xargs -0 -L 1 rm  && notmuch new
+
+ 'ctrl d d' = "shellescape '~/bin/notmuch-delete'; refresh"
   q = 'search tag:inbox AND date:7d..now AND NOT tag:deleted AND NOT tag:spam'
   Q = exit
   d = 
