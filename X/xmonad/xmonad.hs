@@ -68,7 +68,7 @@ main = do
     kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
     nScreens    <- countScreens
     conkys      <- mapM spawnPipe conkyCommands
-    hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
+    hs          <- mapM (spawnPipe . xmobarCommand) [0 .. (nScreens - 1)]
     trayers     <- mapM (spawnPipe . trayerCommand) [0 .. 0]
     xmonad $ defaultConfig {
         borderWidth             = 3,
@@ -86,7 +86,7 @@ main = do
                                   <+> fullscreenMPlayer
                                   <+> manageDocks
                                   <+> manageSpawn,
-        logHook                 = mapM_ dynamicLogWithPP $ zipWith pp hs [0..nScreens],
+        logHook                 = mapM_ dynamicLogWithPP $ zipWith pp hs [0..(nScreens - 1)],
         startupHook             = setWMName "LG3D" -- gotta keep this until all the machines I use have the version of openjdk that respects _JAVA_AWT_WM_NONREPARENTING`
     }
 
