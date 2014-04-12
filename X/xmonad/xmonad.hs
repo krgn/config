@@ -110,10 +110,10 @@ keyBindings conf = let m = modMask conf in fromList $ [
   ((m                      , xK_l     ), sendMessage Expand), -- %! Expand the master area
   ((m                      , xK_a     ), windows focusMaster),
   ((m .|. shiftMask        , xK_a     ), windows swapMaster),
-  ((m                      , xK_m     ), withScreen 0 view),
-  ((m .|. shiftMask        , xK_m     ), withScreen 0 viewShift),
-  ((m                      , xK_n     ), withScreen 1 view),
-  ((m .|. shiftMask        , xK_n     ), withScreen 1 viewShift),
+  ((m                      , xK_comma ), withScreen 0 view),
+  ((m .|. shiftMask        , xK_comma ), withScreen 0 viewShift),
+  ((m                      , xK_m     ), withScreen 1 view),
+  ((m .|. shiftMask        , xK_m     ), withScreen 1 viewShift),
   ((m                      , xK_u     ), centerMouse),
   ((m .|. shiftMask        , xK_u     ), statusBarMouse)
   ] ++ [
